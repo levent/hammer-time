@@ -29,6 +29,7 @@
   $('.js-go').on('click', function() {
     name = $('.js-name').val();
     if (name !== "") {
+      $('.js-name').blur();
       modalStart.hide();
       $('.js-title').html(name);
       startHammering = true
@@ -41,7 +42,7 @@
       ay = Math.round(event.accelerationIncludingGravity.y * 100) / 100;
       az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
-      if (ax < -10 && Math.abs(ax) > sensors.accelerometer.force_x) {
+      if (ax < -10 && Math.abs(ax) > max_force_x) {
         current_weakened = 50;
         max_force_x = Math.abs(ax);
       } else {
