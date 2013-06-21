@@ -38,9 +38,9 @@
   // ACCELEROMETER
 
   window.ondevicemotion = function(event) {
-    ax = (event.accelerationIncludingGravity.x * 1);
-    ay = (event.accelerationIncludingGravity.y * 1);
-    az = (event.accelerationIncludingGravity.z * 1);
+    ax = Math.round(event.accelerationIncludingGravity.x * 100) / 100;
+    ay = Math.round(event.accelerationIncludingGravity.y * 100) / 100;
+    az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
       max_force_x = Math.abs(ax);
