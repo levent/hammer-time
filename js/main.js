@@ -1,6 +1,8 @@
 (function () {
 
-  var feedID = 90828,
+  xively.setKey( "HKOqbnwaas1T3IubGWejOLxwbDmqpwpzdqGDFGP5hSdi7YK0" );
+  var feedID = 90828;
+
   // Acceleration
   var ax      = 0;
   var max_force_x = 0;
@@ -14,7 +16,6 @@
 
   var delay       = 110;
 
-  xively.setKey( "HKOqbnwaas1T3IubGWejOLxwbDmqpwpzdqGDFGP5hSdi7YK0" );
   // ACCELEROMETER
 
   modalStart.show();
