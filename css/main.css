@@ -164,17 +164,17 @@ img {
   padding-top: 35%;
 }
 
+.modal-start h2 {
+  margin-bottom: 1.5em;
+}
+
 .modal-done {
-  padding-top: 35%;
+  padding-top: 15%;
   background-color: rgba(0,195,117,.75);
 }
 
 .modal-done .icon-checkmark {
   font-size: 3em;
-}
-
-.modal-done h2 {
-  margin-bottom: 1em;
 }
 
 .button {
