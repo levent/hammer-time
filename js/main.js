@@ -31,8 +31,7 @@
   var ay      = 0;
   var az      = 0;
   var max_force_x = 0;
-  var max_force_y = 0;
-  var max_force_z = 0;
+  var saved = false;
 
 
   var delay       = 110;
@@ -47,7 +46,13 @@
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
       max_force_x = Math.abs(ax);
     } else {
+      if (!saved) {
       max_force_x = sensors.accelerometer.force_x;
+        if (sensors.accelerometer.force_x + ax > 40) {
+          saved = true;
+          alert('finished');
+        }
+      }
     }
 
     sensors.accelerometer = {
@@ -66,6 +71,5 @@
     }
 
   }, delay);
-
 
 })();
