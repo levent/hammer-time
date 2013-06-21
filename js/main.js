@@ -3,7 +3,9 @@
   var feedID = 90828,
       sensors = {
         accelerometer : {
-          force : 0,
+          force_x : 0,
+          force_y : 0,
+          force_z : 0,
         }
       };
 
@@ -30,7 +32,9 @@
   var ax      = 0;
   var ay      = 0;
   var az      = 0;
-  var max_force = 0;
+  var max_force_x = 0;
+  var max_force_y = 0;
+  var max_force_z = 0;
 
 
   var delay       = 110;
@@ -38,19 +42,34 @@
   // ACCELEROMETER
 
   window.ondevicemotion = function(event) {
-    ax = Math.round(Math.abs(event.acceleration.x * 1));
-    ay = Math.round(Math.abs(event.acceleration.y * 1));
-    az = Math.round(Math.abs(event.acceleration.z * 1));
+    ax = Math.round(event.acceleration.x * 1);
+    ay = Math.round(event.acceleration.y * 1);
+    az = Math.round(event.acceleration.z * 1);
 
     var current_force = Math.abs(ax + ay + az);
-    if (current_force > sensors.accelerometer.force) {
-      max_force = current_force;
+    if (ax > sensors.accelerometer.force_x) {
+      max_force_x = ax;
     } else {
-      max_force = sensors.accelerometer.force;
+      max_force_x = sensors.accelerometer.force_x;
     }
 
+    if (ay > sensors.accelerometer.force_y) {
+      max_force_y = ay;
+    } else {
+      max_force_y = sensors.accelerometer.force_y;
+    }
+
+    if (az > sensors.accelerometer.force_z) {
+      max_force_z = az;
+    } else {
+      max_force_z = sensors.accelerometer.force_z;
+    }
+
+
     sensors.accelerometer = {
-      force : max_force,
+      force_x : max_force_x,
+      force_y : max_force_y,
+      force_z : max_force_z,
     };
   };
 
