@@ -45,13 +45,14 @@
     az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
+      current_weakened= 0;
       max_force_x = Math.abs(ax);
     } else {
       current_weakened += 1;
       max_force_x = sensors.accelerometer.force_x;
     }
 
-    if (current_weakened < 1000) {
+    if (current_weakened < 100) {
       sensors.accelerometer = {
         weakened : current_weakened,
         force_x : max_force_x,
