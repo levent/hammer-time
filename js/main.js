@@ -53,7 +53,7 @@
       max_force_x = sensors.accelerometer.force_x;
     }
 
-    if (current_weakened > 1) {
+    if (current_weakened > 0) {
       sensors.accelerometer = {
         saving_in : current_weakened,
         force_x : max_force_x,
