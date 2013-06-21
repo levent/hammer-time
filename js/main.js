@@ -47,10 +47,6 @@
       max_force_x = Math.abs(ax);
     } else {
       max_force_x = sensors.accelerometer.force_x;
-      if (!saved && sensors.accelerometer.force_x + ax > 40) {
-        saved = true;
-        alert('finished');
-      }
     }
 
     sensors.accelerometer = {
