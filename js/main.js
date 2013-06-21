@@ -17,6 +17,7 @@
   var current_weakened = 50;
   var name;
   var modalStart = $('.modal-start');
+  var contestantName = $('.js-name');
   var startHammering = false;
 
   var delay       = 110;
@@ -27,9 +28,9 @@
   modalStart.show();
 
   $('.js-go').on('click', function() {
-    name = $('.js-name').val();
+    name = contestantName.val();
     if (name !== "") {
-      $('.js-name').blur();
+      contestantName.remove();
       modalStart.hide();
       $('.js-title').html(name);
       startHammering = true
@@ -50,7 +51,7 @@
       }
 
       if (current_weakened <= 0 && !saved) {
-        xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : name.replace(/\s/, '_'), current_value : max_force_x, tags : [name]}]});
+        xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : 'score', current_value : max_force_x}, {id : 'contestant', current_value: name}]});
         saved = true;
       }
     }
