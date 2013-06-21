@@ -1,7 +1,6 @@
 (function () {
 
   xively.setKey( "HKOqbnwaas1T3IubGWejOLxwbDmqpwpzdqGDFGP5hSdi7YK0" );
-  var feedID = 90828;
 
   // Acceleration
   var ax      = 0;
@@ -12,6 +11,7 @@
   var modalStart = $('.modal-start');
   var modalDone = $('.modal-done');
   var contestantName = $('.js-name');
+  var started = false;
   var startHammering = false;
 
   var delay       = 110;
@@ -30,9 +30,10 @@
       ax = Math.round(event.accelerationIncludingGravity.x * 100) / 100;
 
       if (ax < -10 && Math.abs(ax) > max_force_x) {
+        started = true;
         current_weakened = 40;
         max_force_x = Math.abs(ax);
-      } else {
+      } else if (started) {
         current_weakened -= 1;
       }
 
