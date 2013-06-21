@@ -27,15 +27,15 @@
 
   modalStart.show();
 
-  $('.js-go').on('click', function() {
-    name = contestantName.val();
-    if (name !== "") {
-      contestantName.remove();
-      modalStart.hide();
-      $('.js-title').html(name);
-      startHammering = true
-    }
-  });
+  // $('.js-go').on('click', function() {
+  //   name = contestantName.val();
+  //   if (name !== "") {
+  //     contestantName.remove();
+  //     modalStart.hide();
+  //     $('.js-title').html(name);
+  //     startHammering = true;
+  //   }
+  // });
 
   window.ondevicemotion = function(event) {
     if (startHammering) {
