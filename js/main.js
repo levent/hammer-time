@@ -30,7 +30,6 @@
     name = $('.js-name').val();
     if (name !== "") {
       $('.js-name').blur();
-      modalStart.hide();
       $('.js-title').html(name);
       startHammering = true
     }
