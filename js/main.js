@@ -15,7 +15,7 @@
   var max_force_x = 0;
   var saved = false;
   var current_weakened = 50;
-  var name;
+  var name = window.location.search.substring(1).split('=',2)[1];
   var modalStart = $('.modal-start');
   var contestantName = $('.js-name');
   var startHammering = false;
@@ -26,6 +26,11 @@
   // ACCELEROMETER
 
   modalStart.show();
+  if (typeof(name) !== "undefined") {
+    modalStart.hide();
+    $('.js-title').html(name);
+    startHammering = true;
+  }
 
   // $('.js-go').on('click', function() {
   //   name = contestantName.val();
