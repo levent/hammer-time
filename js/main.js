@@ -67,9 +67,9 @@
   // ACCELEROMETER
 
   window.ondevicemotion = function(event) {
-    ax = Math.round(Math.abs(event.accelerationIncludingGravity.x * 1));
-    ay = Math.round(Math.abs(event.accelerationIncludingGravity.y * 1));
-    az = Math.round(Math.abs(event.accelerationIncludingGravity.z * 1));
+    ax = Math.round(Math.abs(event.acceleration.x * 1));
+    ay = Math.round(Math.abs(event.acceleration.y * 1));
+    az = Math.round(Math.abs(event.acceleration.z * 1));
     ai = Math.round(event.interval * 100) / 100;
     rR = event.rotationRate;
     if (rR != null) {
@@ -79,9 +79,9 @@
     }
 
     sensors.accelerometer = {
-      x : event.accelerationIncludingGravity.x,
-      y : event.accelerationIncludingGravity.y,
-      z : event.accelerationIncludingGravity.z,
+      x : event.acceleration.x,
+      y : event.acceleration.y,
+      z : event.acceleration.z,
       interval : event.interval,
       alpha : rR.alpha,
       beta : rR.beta,
