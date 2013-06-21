@@ -50,7 +50,7 @@
       }
 
       if (current_weakened <= 0 && !saved) {
-        xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : name.replace(/\s/, '_'), current_value : max_force_x, tags : [name]}]});
+        xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : 'score', current_value : max_force_x}, {id : 'contestant', current_value: name}]});
         saved = true;
       }
     }
