@@ -33,15 +33,14 @@
   var max_force_x = 0;
   var saved = false;
 
-
   var delay       = 110;
 
   // ACCELEROMETER
 
   window.ondevicemotion = function(event) {
-    ax = Math.round(event.accelerationIncludingGravity.x * 1);
-    ay = Math.round(event.accelerationIncludingGravity.y * 1);
-    az = Math.round(event.accelerationIncludingGravity.z * 1);
+    ax = (event.accelerationIncludingGravity.x * 1);
+    ay = (event.accelerationIncludingGravity.y * 1);
+    az = (event.accelerationIncludingGravity.z * 1);
 
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
       max_force_x = Math.abs(ax);
