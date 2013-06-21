@@ -3,8 +3,8 @@
   xively.setKey( "HKOqbnwaas1T3IubGWejOLxwbDmqpwpzdqGDFGP5hSdi7YK0" );
 
   // Acceleration
-  var ax      = 0;
-  var max_force_x = 0;
+  var ax = 0;
+  var max_force_x = 20;
   var saved = false;
   var current_weakened = 50;
   var name = window.location.search.substring(1).split('=',2)[1];
@@ -25,7 +25,7 @@
     if (startHammering) {
       ax = Math.round(event.accelerationIncludingGravity.x * 100) / 100;
 
-      if (ax < -10 && Math.abs(ax) > max_force_x) {
+      if (Math.abs(ax) > max_force_x) {
         started = true;
         current_weakened = 40;
         max_force_x = Math.abs(ax);
