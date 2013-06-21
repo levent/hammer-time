@@ -4,6 +4,7 @@
       sensors = {
         accelerometer : {
           force_x : 0,
+          weakened : 0,
         }
       };
 
@@ -32,7 +33,7 @@
   var az      = 0;
   var max_force_x = 0;
   var saved = false;
-  var weakened = 0;
+  var current_weakened = 0;
 
   var delay       = 110;
 
@@ -46,12 +47,13 @@
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
       max_force_x = Math.abs(ax);
     } else {
-      weakened += 1;
+      current_weakened += 1;
       max_force_x = sensors.accelerometer.force_x;
     }
 
-    if (weakened < 1000) {
+    if (current_weakened < 1000) {
       sensors.accelerometer = {
+        weakened : current_weakened,
         force_x : max_force_x,
       };
     } else {
