@@ -44,7 +44,7 @@
       az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
       if (ax < -10 && Math.abs(ax) > max_force_x) {
-        current_weakened = 50;
+        current_weakened = 40;
         max_force_x = Math.abs(ax);
       } else {
         current_weakened -= 1;
