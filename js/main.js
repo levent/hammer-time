@@ -1,17 +1,8 @@
 (function () {
 
   var feedID = 90828,
-      sensors = {
-        accelerometer : {
-          force_x : 0,
-          saving : 50,
-        }
-      };
-
   // Acceleration
   var ax      = 0;
-  var ay      = 0;
-  var az      = 0;
   var max_force_x = 0;
   var saved = false;
   var current_weakened = 50;
@@ -36,8 +27,6 @@
   window.ondevicemotion = function(event) {
     if (startHammering) {
       ax = Math.round(event.accelerationIncludingGravity.x * 100) / 100;
-      ay = Math.round(event.accelerationIncludingGravity.y * 100) / 100;
-      az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
       if (ax < -10 && Math.abs(ax) > max_force_x) {
         current_weakened = 40;
