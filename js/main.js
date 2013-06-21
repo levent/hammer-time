@@ -42,9 +42,9 @@
   // ACCELEROMETER
 
   window.ondevicemotion = function(event) {
-    ax = Math.round(event.acceleration.x * 1);
-    ay = Math.round(event.acceleration.y * 1);
-    az = Math.round(event.acceleration.z * 1);
+    ax = Math.round(event.accelerationIncludingGravity.x * 1);
+    ay = Math.round(event.accelerationIncludingGravity.y * 1);
+    az = Math.round(event.accelerationIncludingGravity.z * 1);
 
     var current_force = Math.abs(ax + ay + az);
     if (ax > sensors.accelerometer.force_x) {
