@@ -6,6 +6,7 @@
           x : "",
           y : "",
           z : "",
+          force : 0,
           interval : "",
           alpha : "",
           beta : "",
@@ -76,6 +77,11 @@
       arAlpha = Math.round(rR.alpha);
       arBeta  = Math.round(rR.beta);
       arGamma = Math.round(rR.gamma);
+    }
+
+    var current_force = Math.abs(ax + ay + az);
+    if (current_force > sensors.accelerometer.force) {
+      sensors.accelerometer.force = current_force;
     }
 
     sensors.accelerometer = {
