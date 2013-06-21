@@ -33,11 +33,11 @@
   var az      = 0;
   var max_force_x = 0;
   var saved = false;
-  var start = false;
   var current_weakened = 0;
 
   var delay       = 110;
 
+  xively.setKey( "HKOqbnwaas1T3IubGWejOLxwbDmqpwpzdqGDFGP5hSdi7YK0" );
   // ACCELEROMETER
 
   window.ondevicemotion = function(event) {
@@ -46,7 +46,6 @@
     az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
-      start = true;
       current_weakened= 0;
       max_force_x = Math.abs(ax);
     } else {
@@ -60,8 +59,8 @@
         force_x : max_force_x,
       };
     } else {
-      if (saved === false && start === true)
-        alert('finito!');
+      if (saved === false)
+        xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : 'test', current_value : max_force_x}]});
       saved = true;
     }
   };
