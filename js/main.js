@@ -4,8 +4,6 @@
       sensors = {
         accelerometer : {
           force_x : 0,
-          force_y : 0,
-          force_z : 0,
         }
       };
 
@@ -46,29 +44,14 @@
     ay = Math.round(event.accelerationIncludingGravity.y * 1);
     az = Math.round(event.accelerationIncludingGravity.z * 1);
 
-    if (ax < sensors.accelerometer.force_x) {
-      max_force_x = ax;
+    if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
+      max_force_x = Math.abs(ax);
     } else {
       max_force_x = sensors.accelerometer.force_x;
     }
 
-    if (ay < sensors.accelerometer.force_y) {
-      max_force_y = ay;
-    } else {
-      max_force_y = sensors.accelerometer.force_y;
-    }
-
-    if (az > sensors.accelerometer.force_z) {
-      max_force_z = az;
-    } else {
-      max_force_z = sensors.accelerometer.force_z;
-    }
-
-
     sensors.accelerometer = {
       force_x : max_force_x,
-      force_y : max_force_y,
-      force_z : max_force_z,
     };
   };
 
