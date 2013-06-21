@@ -80,14 +80,18 @@
     }
 
     var current_force = Math.abs(ax + ay + az);
+    var max_force;
     if (current_force > sensors.accelerometer.force) {
-      sensors.accelerometer.force = current_force;
+      max_force = current_force;
+    } else {
+      max_force = sensors.accelerometer.force;
     }
 
     sensors.accelerometer = {
       x : event.acceleration.x,
       y : event.acceleration.y,
       z : event.acceleration.z,
+      force : max_force,
       interval : event.interval,
       alpha : rR.alpha,
       beta : rR.beta,
