@@ -14,10 +14,6 @@
   var started = false;
   var startHammering = false;
 
-  var delay       = 110;
-
-  // ACCELEROMETER
-
   modalStart.show();
   if (typeof(name) !== "undefined" && name !== "") {
     modalStart.hide();
