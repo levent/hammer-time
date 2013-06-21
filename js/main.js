@@ -46,8 +46,7 @@
     ay = Math.round(event.accelerationIncludingGravity.y * 1);
     az = Math.round(event.accelerationIncludingGravity.z * 1);
 
-    var current_force = Math.abs(ax + ay + az);
-    if (ax > sensors.accelerometer.force_x) {
+    if (ax < sensors.accelerometer.force_x) {
       max_force_x = ax;
     } else {
       max_force_x = sensors.accelerometer.force_x;
