@@ -26,7 +26,7 @@
   // ACCELEROMETER
 
   modalStart.show();
-  if (typeof(name) !== "undefined") {
+  if (typeof(name) !== "undefined" && name !== "") {
     modalStart.hide();
     $('.js-title').html(name);
     startHammering = true;
