@@ -8,8 +8,7 @@
       };
 
   var $outputs = $(".outputs"),
-      template = Handlebars.compile( $("#output-template").html() ),
-      sectionTemplate = Handlebars.compile( $("#output-section-template").html() );
+      template = Handlebars.compile( $("#output-template").html() ) ;
 
   if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
     $("meta[name=viewport]").attr("content", "width=device-width; initial-scale=1.0;")
@@ -20,8 +19,6 @@
   var appender = "";
 
   for ( var sensorSection in sensors ) {
-    appender += sectionTemplate({ title: sensorSection });
-
     for ( var sectionItem in sensors[sensorSection] ) {
       appender += template({ section: sensorSection, label: sectionItem, value: "" });
     }
