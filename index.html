@@ -6,42 +6,44 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <title>Hammer Time</title>
-
+  <title></title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 
-  <h1 class="app-title">Hammer Time</h1>
+  <div class="container">
+    <header class="app-header">
+      <h1 class="js-title">Hammer Time</h1>
+    </header>
 
-  <div class="content">
-
-    <ul class="outputs">
-      <script id="output-template" type="text/x-handlebars-template">
-        <li class="outputs-item">
-          <h1 class="output js-{{section}}-{{label}}"><strong class="output-label">{{label}}</strong> <span class="output-value">{{value}}</span></h1>
-        </li>
-      </script>
-    </ul>
-
-    <p class="space-it">
-      <a href="">Try Again!</a>
-    </p>
-
+    <div class="app-main">
+      <img class="hammer" src="img/hammer.jpg" alt="hammer">
+    </div>
   </div>
 
+  <div class="modal modal-start">
+    <h2>Ready to hammer?</h2>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+    <p><input type="text" class="input js-name" placeholder="Tap to add your name"></p>
+
+    <button class="button js-go">Go</button>
+  </div>
+
+  <div class="modal modal-done">
+    <i class="icon-checkmark"></i>
+    <h2>Well done!</h2>
+
+    <button class="button js-try-again">Try again</button>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
   <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
-  <script src="js/vendor/handlebars-1.0.rc.1.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 </body>

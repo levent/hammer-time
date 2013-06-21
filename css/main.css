@@ -1,3 +1,52 @@
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+@font-face {
+  font-family: 'icons';
+  src:url('other/fonts/icons.eot');
+}
+@font-face {
+  font-family: 'icons';
+  src: url(data:application/x-font-woff;charset=utf-8;base64,d09GRk9UVE8AAAT4AAsAAAAABxgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAABCAAAAdcAAAJmdcq7IUZGVE0AAALgAAAAGgAAABxoEbGYR0RFRgAAAvwAAAAdAAAAIAAxAARPUy8yAAADHAAAAEsAAABgL9zcQGNtYXAAAANoAAAAPQAAAVLgE/LNaGVhZAAAA6gAAAAuAAAANvzzT4VoaGVhAAAD2AAAAB4AAAAkBBD/5GhtdHgAAAP4AAAADgAAAA4EAAAAbWF4cAAABAgAAAAGAAAABgAEUABuYW1lAAAEEAAAANwAAAFuDTSJ03Bvc3QAAATsAAAADAAAACAAAwAAeJw9kE9IVFEUxr/7fK8ZhsdY2gxaD62Q8M9QL+wPRYjQH0TKFk2bkCBrY5JJ2VoIoaaLJDVCULppVdjO0qKFtYiCYBgyFSLCncRs2ugNJr/ufTdn87vnnO/7zuE9AdeFEGJL/5Ubg7cgHAh0qAZHNVapOlf6VdJ3GxKoP19DKSuFH7s/oCbUsBfgTnUAbA2Q2xYgHjiXauCZHXFUI42d2HV7sP90GIb6OVV5DkTH7EVA3BX3RA6uiTnwMSo+J6Uadst5lY8liY+zY0Rq768UxdGReYqDD3rJyXNTxOU942RL+IzMPPxNPnnfRfS9GLEqp34MecThTHeayIxeJNqKzcTVjjmtX+gkFgu9xNfrSaM+JRf27+BGeTpO4sNZL6ny6zMpuZ4lXzl+BI8svtTufdlj5LzTQwTP35Jveh5LHbo5OUSO9Y3/R9QaoCJAo5E4UyxJ4uTqDLF7+ZFeV+omDk106h2FpQTR2lSnL/1tf02WCz91VZ/W1UpOQy1q/NHt93fXDAZ05NMaWYq1kV9mE3KTZopa9c2YWoimE1lTTZtqydoRHtFGtHetWVq7mVq7xrK12zYSatWCjcQ3k2as92Ws39zQnzF3vDmC+YnbZUr6iX8/+iZQAHicY2BgYGQAgjO2i86D6LOv2FNgNABLpwbAAAB4nGNgZGBg4ANiCQYQYGJgBEJmIGYB8xgABGsANgAAAHicY2BmYmCcwMDKwMHow5jGwMDgDqW/MkgytDAwMDGwMjPAgQCCyRCQ5prC4PCA4QMD44P/Dxj0GB8wKDQwMDDCFSgAISMAEEIMHwB4nGNgYGBmgGAZBkYGEPAB8hjBfBYGAyDNAYRMIIkHjB8Y/v8HsxggLAUmAUaoLjBgZGNA5o5IAADKgwivAAAAeJxjYGRgYADiiEvxR+L5bb4ycDMxgMDZV+wpCPr/AyYGxgdALgcDWBoAOu4LDAAAeJxjYGRgYHzw/wGDHhMDA8M/BiAJFEEBzABt5wP2AAACAAAAAAAAAAIAAAAAAAAAAABQAAAEAAB4nG2OsUoDQRRFzya7kahYWFhPLAO77IyQIqVFPsAifQjDshB2YJL8h5WVlZ/hB/gBfpF3JwMWOvB45z7ue3eAW94oGF9BJXXhCVc8Zp6yYMhcyvOeueKGz8wzqW85i3KuyXXaGnnCHfeZpzyzzFzK85q54oGPzDPNv+jZE5R5hH4fBrUXPB1nDuyIkr47H3aCTfKdUo9yeAyOhlZ9rfq9dNEOS81K5eSxPOlEGE6bEDtvXNOatUmJ6s7Wq9q1Vpa//9kqKUr3aW50acxk6+OxD4OxTfvP1g+ckjJzeJxjYGbACwAAfQAE) format('woff'),
+     url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAANAIAAAwBQRkZUTWgRsZgAAAWwAAAAHEdERUYAMwAGAAAFkAAAACBPUy8yL7rcHwAAAVgAAABWY21hcOAV89QAAAHIAAABUmdhc3D//wADAAAFiAAAAAhnbHlm/Ve+IwAAAywAAACkaGVhZPzzT4UAAADcAAAANmhoZWEEEP/mAAABFAAAACRobXR4BKoAAAAAAbAAAAAWbG9jYQBgACoAAAMcAAAADm1heHAASgAaAAABOAAAACBuYW1lDTSJ0wAAA9AAAAFucG9zdN3b5/QAAAVAAAAARgABAAAAAQAA4v9wpF8PPPUACwIAAAAAAM3qB2QAAAAAzeoHZP///+ACAQHgAAAACAACAAAAAAAAAAEAAAHg/+AALgIA///+AAIBAAEAAAAAAAAAAAAAAAAAAAAFAAEAAAAGABcAAgAAAAAAAgAAAAEAAQAAAEAAAAAAAAAAAQIAAZAABQAIAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAIABQMAAAAAAAAAAAAAEAAAAAAAAAAAAAAAUGZFZABA4ADwAAHg/+AALgHgACCAAAABAAAAAAAAAgAAAAAAAAAAqgAAAAAAAAIAAAAAAAAAAAAAAwAAAAMAAAAcAAEAAAAAAEwAAwABAAAAHAAEADAAAAAIAAgAAgAAAADgAfAA//8AAAAA4ADwAP//AAAgBBADAAEAAAAAAAAAAAAAAQYAAAEAAAAAAAAAAQIAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AKgBSAAAAAQAA/+ACAAHgAAIAABEBIQIA/gAB4P4AAAAAAAL//wAVAgEBqwAFAAsAADcnNxc3FwUXAScHJ8fHYmXXYv42kQEDLNdlFcRhY9RhcY8BACzUYwAAAQAA/+ACAAHgABYAAAEjNyYiBhQWMjc2NxcOASMiJjQ2Mhc3AgDASDigcHCgOAQEMSRkOWqWltRLSwEgSDhwoHA4BQUrKS6W1JZLSwAAAAAAAAwAlgABAAAAAAABAAUADAABAAAAAAACAAcAIgABAAAAAAADACEAbgABAAAAAAAEAAUAnAABAAAAAAAFAAsAugABAAAAAAAGAAUA0gADAAEECQABAAoAAAADAAEECQACAA4AEgADAAEECQADAEIAKgADAAEECQAEAAoAkAADAAEECQAFABYAogADAAEECQAGAAoAxgBpAGMAbwBuAHMAAGljb25zAABSAGUAZwB1AGwAYQByAABSZWd1bGFyAABGAG8AbgB0AEYAbwByAGcAZQAgADIALgAwACAAOgAgAGkAYwBvAG4AcwAgADoAIAAyADEALQA2AC0AMgAwADEAMwAARm9udEZvcmdlIDIuMCA6IGljb25zIDogMjEtNi0yMDEzAABpAGMAbwBuAHMAAGljb25zAABWAGUAcgBzAGkAbwBuACAAMQAuADAAAFZlcnNpb24gMS4wAABpAGMAbwBuAHMAAGljb25zAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAEAAgECAQMBBAd1bmlGMDAwB3VuaUUwMDAHdW5pRTAwMQAAAAAAAf//AAIAAQAAAA4AAAAYAAAAAAACAAEAAwAFAAEABAAAAAIAAAAAAAEAAAAAzD2izwAAAADN6gdkAAAAAM3qB2Q=) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-checkmark, .icon-spinner {
+  font-family: 'icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-checkmark:before {
+  content: "\e000";
+}
+.icon-spinner:before {
+  content: "\e001";
+}
+
 html,
 button,
 input,
@@ -45,99 +94,157 @@ textarea {
 }
 
 
-/* http://www.colourlovers.com/palette/778713/Miaka */
-
-h1, h2, h3, h4, h5, h6 {
-  text-rendering: optimizeLegibility;
-}
 
 body {
-  padding: 0 20px 90px;
-  font-size: 14px;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.app-title {
-  margin: 0 -20px 20px;
-  padding: 20px 20px;
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+.app-header h1 {
+  margin: 0;
+  padding: 7% 0 2%;
+  font-weight: 300;
+  font-size: 1.5em;
+  letter-spacing: -.025em;
   text-align: center;
-  font-size: 19px;
-  font-weight: 900;
-  text-transform: uppercase;
-  background-color: #000;
-  color: #fff;
-  letter-spacing: 4px;
 }
 
-.content {
-  max-width: 320px;
-  margin: 0 auto;
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
 }
 
-#map_canvas {
-  width: 100%;
-  height: 200px;
+.app-main {
+  text-align: center;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.hammer {
+  max-height: 75vh;
 }
 
-#box {
-  padding: 100px 0 160px;
-  -webkit-perspective: 800;
-  -webkit-perspective-origin: 50% 200px;
-  color: white;
-}
-
-#cube {
-  position: relative;
-  margin: 0 auto;
-  height: 200px;
-  width: 200px;
-  -webkit-transition: -webkit-transform .1s ease-out;
-  -webkit-transform-style: preserve-3d;
-}
-
-.face {
+.modal {
+  display: none;
   position: absolute;
-  height: 180px;
-  width: 180px;
-  padding: 10px;
-  background-color: rgba(50, 50, 50, 0.7);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(252,53,76, 0)), color-stop(100%,rgba(252,53,76, 1)));
-  background: -webkit-linear-gradient(left, rgba(252,53,76, 0) 0%,rgba(252,53,76, 1) 100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0,0,0,.75);
+  color: white;
+  text-align: center;
 }
 
-#cube .one  {
-  -webkit-transform: rotateX(90deg) translateZ(100px);
+.modal h2 {
+  margin: 0 0 .5em;
+  padding: 3% 0;
+  font-weight: 300;
+  font-size: 2em;
+  letter-spacing: -.025em;
+  text-align: center;
 }
 
-#cube .two {
-  -webkit-transform: translateZ(100px);
+.modal-start {
+  padding-top: 35%;
 }
 
-#cube .three {
-  -webkit-transform: rotateY(90deg) translateZ(100px);
+.modal-done {
+  padding-top: 35%;
+  background-color: rgba(0,195,117,.75);
 }
 
-#cube .four {
-  -webkit-transform: rotateY(180deg) translateZ(100px);
+.modal-done .icon-checkmark {
+  font-size: 3em;
 }
 
-#cube .five {
-  -webkit-transform: rotateY(-90deg) translateZ(100px);
+.modal-done h2 {
+  margin-bottom: 1em;
 }
 
-#cube .six {
-  -webkit-transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+.button {
+  padding: 7% 20%;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  font-weight: 300;
+  border: 5px solid white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: .1em;
 }
 
-.space-it {
-  margin-top: 4em;
+.button:hover {
+  color: #00c375;
+  border-color: #00c375;
 }
+
+*:focus {
+  outline: none;
+}
+
+.input {
+  max-width: 80%;
+  padding: 7% 2%;
+  border: 1px solid transparent;
+  background-color: rgba(0,0,0,0);
+  text-align: center;
+  font-weight: 300;
+  font-size: 2em;
+  color: #00c375;
+}
+
+.input:focus {
+  border-color: white;
+}
+
+::-webkit-input-placeholder {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 75%;
+  webkit-font-smoothing: antialiased;
+  color: rgba(255,255,255,.5);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 75%;
+  color: rgba(255,255,255,.5);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 75%;
+  color: rgba(255,255,255,.5);
+}
+
+:-ms-input-placeholder {  
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 75%;
+  color: rgba(255,255,255,.5);
+}
+
+
+
+
 
 .ir {
   background-color: transparent;
@@ -151,7 +258,7 @@ ul {
   content: "";
   display: block;
   width: 0;
-  height: 100%;
+  height: 150%;
 }
 
 .hidden {
@@ -198,65 +305,69 @@ ul {
   *zoom: 1;
 }
 
+/* ==========================================================================
+ Print styles.
+ ========================================================================== */
+
 @media print {
   * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
+      background: transparent !important;
+      color: #000 !important; 
+      box-shadow: none !important;
+      text-shadow: none !important;
   }
 
   a,
   a:visited {
-    text-decoration: underline;
+      text-decoration: underline;
   }
 
   a[href]:after {
-    content: " (" attr(href) ")";
+      content: " (" attr(href) ")";
   }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
+      content: " (" attr(title) ")";
   }
 
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
-    content: "";
+      content: "";
   }
 
   pre,
   blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
+      border: 1px solid #999;
+      page-break-inside: avoid;
   }
 
   thead {
-    display: table-header-group; 
+      display: table-header-group;
   }
 
   tr,
   img {
-    page-break-inside: avoid;
+      page-break-inside: avoid;
   }
 
   img {
-    max-width: 100% !important;
+      max-width: 100% !important;
   }
 
   @page {
-    margin: 0.5cm;
+      margin: 0.5cm;
   }
 
   p,
   h2,
   h3 {
-    orphans: 3;
-    widows: 3;
+      orphans: 3;
+      widows: 3;
   }
 
   h2,
   h3 {
-    page-break-after: avoid;
+      page-break-after: avoid;
   }
 }
