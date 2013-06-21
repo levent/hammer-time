@@ -4,7 +4,7 @@
       sensors = {
         accelerometer : {
           force_x : 0,
-          weakened : 0,
+          saving_in : 50,
         }
       };
 
@@ -33,7 +33,7 @@
   var az      = 0;
   var max_force_x = 0;
   var saved = false;
-  var current_weakened = 0;
+  var current_weakened = 50;
 
   var delay       = 110;
 
@@ -46,16 +46,16 @@
     az = Math.round(event.accelerationIncludingGravity.z * 100) / 100;
 
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
-      current_weakened= 0;
+      current_weakened= 50;
       max_force_x = Math.abs(ax);
     } else {
-      current_weakened += 1;
+      current_weakened -= 1;
       max_force_x = sensors.accelerometer.force_x;
     }
 
-    if (current_weakened < 50) {
+    if (current_weakened < 1) {
       sensors.accelerometer = {
-        weakened : current_weakened,
+        saving_in : current_weakened,
         force_x : max_force_x,
       };
     } else {
