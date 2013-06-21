@@ -178,6 +178,8 @@ img {
 }
 
 .button {
+  display: block;
+  text-decoration: none;
   padding: 7% 20%;
   background-color: rgba(0,0,0,0);
   color: white;
@@ -235,16 +237,12 @@ img {
   color: rgba(255,255,255,.5);
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 75%;
   color: rgba(255,255,255,.5);
 }
-
-
-
-
 
 .ir {
   background-color: transparent;
@@ -312,7 +310,7 @@ img {
 @media print {
   * {
       background: transparent !important;
-      color: #000 !important; 
+      color: #000 !important;
       box-shadow: none !important;
       text-shadow: none !important;
   }
