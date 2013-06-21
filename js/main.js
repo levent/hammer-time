@@ -4,7 +4,7 @@
       sensors = {
         accelerometer : {
           force_x : 0,
-          saving_in : 50,
+          saving : 50,
         }
       };
 
@@ -55,12 +55,17 @@
 
     if (current_weakened > 0) {
       sensors.accelerometer = {
-        saving_in : current_weakened,
+        saving : "in " + current_weakened,
         force_x : max_force_x,
       };
     } else {
-      if (saved === false)
+      if (saved === false) {
+        sensors.accelerometer = {
+          saving : 'now',
+          force_x : max_force_x,
+        };
         xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : 'test', current_value : max_force_x}]});
+      }
       saved = true;
     }
   };
