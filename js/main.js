@@ -52,7 +52,7 @@
       max_force_x = sensors.accelerometer.force_x;
     }
 
-    if (ay > sensors.accelerometer.force_y) {
+    if (ay < sensors.accelerometer.force_y) {
       max_force_y = ay;
     } else {
       max_force_y = sensors.accelerometer.force_y;
