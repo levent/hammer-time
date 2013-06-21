@@ -3,14 +3,7 @@
   var feedID = 90828,
       sensors = {
         accelerometer : {
-          x : "",
-          y : "",
-          z : "",
           force : 0,
-          interval : "",
-          alpha : "",
-          beta : "",
-          gamma : ""
         }
       };
 
@@ -36,34 +29,14 @@
 
   $outputs.append( appender );
 
-  // ACCELEROMETER
-
-  // Position Variables
-  var x = 0;
-  var y = 0;
-  var z = 0;
-
-  // Speed - Velocity
-  var vx = 0;
-  var vy = 0;
-  var vz = 0;
-
   // Acceleration
   var ax      = 0;
   var ay      = 0;
   var az      = 0;
-  var ai      = 0;
-  var arAlpha = 0;
-  var arBeta  = 0;
-  var arGamma = 0;
+  var max_force = 0;
+
 
   var delay       = 110;
-  var vMultiplier = 0.01;
-  var alpha       = 0;
-
-  var alpha = 0;
-  var beta  = 0;
-  var gamma = 0;
 
   // ACCELEROMETER
 
@@ -71,16 +44,8 @@
     ax = Math.round(Math.abs(event.acceleration.x * 1));
     ay = Math.round(Math.abs(event.acceleration.y * 1));
     az = Math.round(Math.abs(event.acceleration.z * 1));
-    ai = Math.round(event.interval * 100) / 100;
-    rR = event.rotationRate;
-    if (rR != null) {
-      arAlpha = Math.round(rR.alpha);
-      arBeta  = Math.round(rR.beta);
-      arGamma = Math.round(rR.gamma);
-    }
 
     var current_force = Math.abs(ax + ay + az);
-    var max_force;
     if (current_force > sensors.accelerometer.force) {
       max_force = current_force;
     } else {
@@ -88,14 +53,7 @@
     }
 
     sensors.accelerometer = {
-      x : event.acceleration.x,
-      y : event.acceleration.y,
-      z : event.acceleration.z,
       force : max_force,
-      interval : event.interval,
-      alpha : rR.alpha,
-      beta : rR.beta,
-      gamma : rR.gamma
     };
   };
 
