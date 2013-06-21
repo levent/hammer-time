@@ -29,9 +29,11 @@
   <div class="modal modal-start">
     <h2>Ready to hammer?</h2>
 
-    <p><input type="text" class="input js-name" placeholder="Tap to add your name"></p>
+    <form method="get" action="/hammer-time">
+      <p><input type="text" class="input js-name" name="name" placeholder="Tap to add your name"></p>
 
-    <button class="button js-go">Go</button>
+      <button type="submit" class="button js-go">Go</button>
+    </form>
   </div>
 
   <div class="modal modal-done">
