@@ -2,11 +2,6 @@
 
   var feedID = 90828,
       sensors = {
-        gyroscope     : {
-          alpha : "",
-          beta : "",
-          gamma : ""
-        },
         accelerometer : {
           x : "",
           y : "",
@@ -15,13 +10,6 @@
           alpha : "",
           beta : "",
           gamma : ""
-        },
-        geolocation   : {
-          accuracy : "",
-          altitudeAccuracy : "",
-          altitude : "",
-          longitude : "",
-          latitude : ""
         }
       };
 
@@ -47,7 +35,7 @@
 
   $outputs.append( appender );
 
-  // ACCELEROMETER & GYROSCOPE
+  // ACCELEROMETER
 
   // Position Variables
   var x = 0;
@@ -69,7 +57,7 @@
   var arGamma = 0;
 
   var delay       = 110;
-  var vMultiplier = 0.01;     
+  var vMultiplier = 0.01;
   var alpha       = 0;
 
   var alpha = 0;
@@ -81,7 +69,7 @@
   window.ondevicemotion = function(event) {
     ax = Math.round(Math.abs(event.accelerationIncludingGravity.x * 1));
     ay = Math.round(Math.abs(event.accelerationIncludingGravity.y * 1));
-    az = Math.round(Math.abs(event.accelerationIncludingGravity.z * 1));   
+    az = Math.round(Math.abs(event.accelerationIncludingGravity.z * 1));
     ai = Math.round(event.interval * 100) / 100;
     rR = event.rotationRate;
     if (rR != null) {
@@ -101,73 +89,9 @@
     };
   };
 
-  // GYROSCOPE
-                
-  window.ondeviceorientation = function(event) {
-    alpha = Math.round(event.alpha);
-    beta  = Math.round(event.beta);
-    gamma = Math.round(event.gamma);
-
-    sensors.gyroscope = {
-      alpha : event.alpha,
-      beta : event.beta,
-      gamma : event.gamma
-    };
-  };
-
-  // GEOLOCATION
-
-  // initialize map
-
-  var map,
-      marker;
-
-  function initialize() {
-    var mapOptions = {
-      zoom: 17,
-      center: new google.maps.LatLng(51.5226769, -0.0808604),
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      disableDefaultUI: true
-    };
-    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(51.5226769, -0.0808604),
-      map: map
-    });
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-
-  var mapElem = document.getElementById("map"),
-      successCallback = function(position) {
-        var 
-          lat  = position.coords.latitude,
-          long = position.coords.longitude,
-          pos = new google.maps.LatLng(lat, long);
-
-        for ( var prop in position.coords ) {
-          if ( position.coords[prop] ) {
-            sensors.geolocation[prop] = position.coords[prop];
-          }
-        }
-
-        marker.setPosition(pos);
-        map.setCenter(pos);
-
-      },
-
-      errorCallback = function() {
-        //console.log("Sorry! I couldn’t get your location.");
-      };
-
-  navigator.geolocation.watchPosition(successCallback, errorCallback, {
-    maximumAge : 1000
-  });
-
   // SEND and SHOW VALUES
 
   setInterval(function() {
-
-    document.getElementById("cube").style.webkitTransform = 'rotateZ(' + alpha + 'deg) rotateX(' + beta + 'deg) rotateY(' + gamma + 'deg)';
 
     for ( var sensorSection in sensors ) {
       for ( var sectionItem in sensors[sensorSection] ) {
