@@ -46,12 +46,10 @@
     if (ax < 0 && Math.abs(ax) > sensors.accelerometer.force_x) {
       max_force_x = Math.abs(ax);
     } else {
-      if (!saved) {
       max_force_x = sensors.accelerometer.force_x;
-        if (sensors.accelerometer.force_x + ax > 40) {
-          saved = true;
-          alert('finished');
-        }
+      if (!saved && sensors.accelerometer.force_x + ax > 40) {
+        saved = true;
+        alert('finished');
       }
     }
 
