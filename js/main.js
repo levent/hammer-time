@@ -17,6 +17,7 @@
   var current_weakened = 50;
   var name;
   var modalStart = $('.modal-start');
+  var contestantName = $('.js-name');
   var startHammering = false;
 
   var delay       = 110;
@@ -27,9 +28,9 @@
   modalStart.show();
 
   $('.js-go').on('click', function() {
-    name = $('.js-name').val();
+    name = contestantName.val();
     if (name !== "") {
-      $('.js-name').blur();
+      contestantName.remove();
       modalStart.hide();
       $('.js-title').html(name);
       startHammering = true
