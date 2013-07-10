@@ -1,6 +1,6 @@
 (function () {
 
-  xively.setKey( "HKOqbnwaas1T3IubGWejOLxwbDmqpwpzdqGDFGP5hSdi7YK0" );
+  xively.setKey( "c2o8k1mGqHIpPoGj6v1mhgiZqgRKsBuXyriHbkE5QMm5jold" );
 
   // Acceleration
   var ax = 0;
@@ -34,7 +34,7 @@
       }
 
       if (current_weakened <= 0 && !saved) {
-        xively.feed.update(1428560412, {version : "1.0.0", datastreams: [{id : 'score', current_value : max_force_x}, {id : 'contestant', current_value: name}]});
+        xively.feed.update(1972066696, {version : "1.0.0", datastreams: [{id : 'score', current_value : max_force_x}, {id : 'contestant', current_value: name}]});
         saved = true;
         startHammering = false;
         modalDone.show();
