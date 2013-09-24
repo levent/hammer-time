@@ -7,17 +7,16 @@
   var max_force_x = 20;
   var saved = false;
   var current_weakened = 50;
-  var name = window.location.search.substring(1).split('=',2)[1];
+  var shouldStart = window.location.search.substring(1).split('=',2)[1];
   var modalStart = $('.modal-start');
   var modalDone = $('.modal-done');
-  var contestantName = $('.js-name');
   var started = false;
   var startHammering = false;
 
   modalStart.show();
-  if (typeof(name) !== "undefined" && name !== "") {
+  console.log(shouldStart);
+  if (typeof(shouldStart) !== "undefined" && shouldStart === "t") {
     modalStart.hide();
-    $('.js-title').html(name);
     startHammering = true;
   }
 
@@ -34,7 +33,7 @@
       }
 
       if (current_weakened <= 0 && !saved) {
-        xively.feed.update(1972066696, {version : "1.0.0", datastreams: [{id : 'score', current_value : max_force_x}, {id : 'contestant', current_value: name}]});
+        xively.feed.update(1972066696, {version : "1.0.0", datastreams: [{id : 'score', current_value : max_force_x}]});
         saved = true;
         startHammering = false;
         modalDone.show();
